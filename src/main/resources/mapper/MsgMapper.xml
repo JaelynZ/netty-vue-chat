@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jaelyn.chat.dao.MsgDao">
+
+    <sql id="messageKeySql">
+        t.id 'id',
+        t.from_user_id 'fromUserId',
+        t.to_user_id 'toUserId',
+        t.create_date 'createDate',
+        t.message 'message'
+    </sql>
+
+    <sql id="groupMessageKeySql">
+        t.id 'id',
+        t.group_id 'groupId',
+        t.user_id 'userId',
+        t.create_date 'createDate',
+        t.message 'message'
+    </sql>
+
+    <!-- 插入聊天记录 -->
+    <insert id="sendMsg" parameterType="com.jaelyn.chat.entity.Message">
+        insert into message ( from_user_id, to_user_id, create_date, message )
+                       VALUES( #{fromUserId}, #{toUserId}, sysdate(), #{message} );
+    </insert>
+
+    <!-- 插入群聊天记录 -->
+    <insert id="sendGroupMsg" parameterType="com.jaelyn.chat.entity.GroupMessage">
+        insert into group_message ( group_id, user_id, create_date, message )
+                       VALUES( #{groupId}, #{userId}, sysdate(), #{message} );
+    </insert>
+
+    <select id="getSingleChatHistory" resultType="com.jaelyn.chat.entity.Message">
+        select px.* from (
+            select
+            u.nick_name 'nickName',
+            u.head_icon 'headIcon',
+            <include refid="messageKeySql"/>
+            from message t LEFT JOIN user u ON t.from_user_id = u.id
+            where (t.from_user_id = #{fromUserId} and t.to_user_id = #{toUserId})
+            or( t.from_user_id = #{toUserId} and t.to_user_id = #{fromUserId} )
+            order by t.create_date desc limit 0,10
+        ) px order by px.createDate asc
+    </select>
+
+    <select id="getGroupChatHistory" resultType="com.jaelyn.chat.entity.GroupMessage">
+        select px.* from (
+            SELECT
+                u.nick_name 'nickName',
+                u.head_icon 'headIcon',
+            <include refid="groupMessageKeySql"/>
+            FROM
+                group_message t
+                LEFT JOIN user u ON t.user_id = u.id
+            WHERE
+                t.group_id = #{groupId}
+            order by t.create_date desc limit 0,10
+        ) px order by px.createDate asc
+    </select>
+
+
+</mapper>

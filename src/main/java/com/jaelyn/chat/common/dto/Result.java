@@ -1,7 +1,7 @@
 package com.jaelyn.chat.common.dto;
 
 /**
- * @author jingling.zhang@ucarinc.com
+ * @author jaelynz@gmail.com
  * @description api结果返回对象
  * @date 2018/12/19 11:22
  **/

@@ -3,7 +3,7 @@ package com.jaelyn.chat.entity;
 import java.util.Date;
 
 /**
- * @author jingling.zhang@ucarinc.com
+ * @author jaelynz@gmail.com
  * @description TODO
  * @date 2018/12/20 15:47
  **/

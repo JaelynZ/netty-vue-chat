@@ -25,8 +25,8 @@ import java.net.URL;
 
 /**
  * 处理 Http 请求
- * @author waylau.com
- * @date 2015-3-26 
+ * @author jaelynz@gmail.com
+ * @date 2015-3-26
  */
 public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequest> { //1
     private final String wsUri;
@@ -78,7 +78,7 @@ public class HttpRequestHandler extends SimpleChannelInboundHandler<FullHttpRequ
             if (!keepAlive) {
                 future.addListener(ChannelFutureListener.CLOSE);        //9
             }
-            
+
             file.close();
         }
     }

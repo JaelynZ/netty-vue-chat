@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author jingling.zhang@ucarinc.com
+ * @author jaelynz@gmail.com
  * @description TODO
  * @date 2018/12/19 13:47
  **/

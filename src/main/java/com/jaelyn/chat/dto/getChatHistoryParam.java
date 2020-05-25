@@ -1,7 +1,7 @@
 package com.jaelyn.chat.dto;
 
 /**
- * @author jingling.zhang@ucarinc.com
+ * @author jaelynz@gmail.com
  * @description TODO
  * @date 2018/12/24 10:24
  **/

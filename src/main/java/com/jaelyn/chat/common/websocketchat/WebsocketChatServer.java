@@ -12,8 +12,8 @@ import org.springframework.core.env.Environment;
 
 /**
  * Websocket 聊天服务器-服务端
- * 
- * @author waylau.com
+ *
+ * @author jaelynz@gmail.com
  * @date 2015-3-7
  */
 public class WebsocketChatServer {
@@ -34,9 +34,9 @@ public class WebsocketChatServer {
              .childHandler(new WebsocketChatServerInitializer())  //(4)
              .option(ChannelOption.SO_BACKLOG, 128)          // (5)
              .childOption(ChannelOption.SO_KEEPALIVE, true); // (6)
-            
+
     		System.out.println("WebsocketChatServer 启动了" + port);
-    		
+
             // 绑定端口，开始接收进来的连接
             ChannelFuture f = b.bind(port).sync(); // (7)
 
@@ -47,7 +47,7 @@ public class WebsocketChatServer {
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
-            
+
     		System.out.println("WebsocketChatServer 关闭了");
         }
     }

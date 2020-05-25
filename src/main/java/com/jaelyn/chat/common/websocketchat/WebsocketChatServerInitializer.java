@@ -10,8 +10,8 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
  * 服务端 ChannelInitializer
- * 
- * @author waylau.com
+ *
+ * @author jaelynz@gmail.com
  * @date 2015-3-13
  */
 public class WebsocketChatServerInitializer extends

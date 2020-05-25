@@ -5,7 +5,7 @@ import com.jaelyn.chat.entity.User;
 import java.util.List;
 
 /**
- * @author jingling.zhang@ucarinc.com
+ * @author jaelynz@gmail.com
  * @description TODO
  * @date 2018/12/20 15:35
  **/

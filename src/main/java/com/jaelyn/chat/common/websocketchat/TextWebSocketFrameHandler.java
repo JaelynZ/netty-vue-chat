@@ -27,7 +27,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 处理TextWebSocketFrame
  *
- * @author waylau.com
+ * @author jaelynz@gmail.com
  * 2015年3月26日
  */
 @Service
